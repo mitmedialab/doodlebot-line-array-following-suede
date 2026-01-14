@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/ingydotnet/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/pmalacho-mit/doodlebot-line-following-suede
+	branch = release
+	commit = e3f9dbd80a2854c6c7c6833fccf5de77504dd318
+	parent = 77dfe26f0f1cf12f1635dc290730a6edaa58f646
+	method = merge
+	cmdver = 0.4.9
