@@ -1,0 +1,52 @@
+name: subrepo-push-release
+on:
+  push:
+    branches: [main]
+    paths:
+      - "release/**"
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Git user
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Action"
+
+      - name: Configure Git credentials
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/".insteadOf "https://github.com/"
+
+      - name: Populate dependency artifacts
+        shell: bash
+        run: |
+          bash -c "$(curl -fsSL https://raw.githubusercontent.com/pmalacho-mit/subrepo-dependency-management/refs/heads/main/scripts/populate-dependencies.sh)"
+
+      - name: Commit dependency changes
+        run: |
+          if [ -n "$(git status --porcelain release/.dependencies/)" ]; then
+            git add release/.dependencies/
+            git commit -m "chore(suede): update dependency artifacts"
+          else
+            echo "No dependency changes to commit"
+          fi
+
+      - name: Install git-subrepo
+        run: |
+          git clone https://github.com/ingydotnet/git-subrepo ~/.git-subrepo
+          source ~/.git-subrepo/.rc
+          git subrepo --version
+
+      - name: Push changes (first pull, to ensure changes are applied on top of current release)
+        run: |
+          set -e
+          source ~/.git-subrepo/.rc
+          git subrepo pull release || true
+          git subrepo push release
+          git push
