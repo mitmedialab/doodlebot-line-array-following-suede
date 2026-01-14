@@ -1,19 +1,29 @@
 {
   "customizations": {
     "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "esbenp.prettier-vscode"
+      ],
       "settings": {
         "[markdown]": {
           "editor.defaultFormatter": null
+        },
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
         },
         "editor.formatOnSave": true,
         "editor.tabSize": 2
       }
     },
     "pmalacho-mit/devcontainers": {
-      "ref": "devcontainer.common.json"
+      "ref": "devcontainer.typescript-default.json"
     }
   },
   "features": {
+    "ghcr.io/devcontainers/features/node:latest": {
+      "version": "20"
+    },
     "ghcr.io/guiyomh/features/vim:0": {},
     "ghcr.io/pmalacho-mit/devcontainer-features/git-subrepo:latest": {}
   },
