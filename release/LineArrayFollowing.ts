@@ -28,14 +28,14 @@ class Sensor extends Looper {
   queueSize = 10;
   average: SensorReading = { left: 0, center: 0, right: 0 };
 
-  constructor(
-    public read: () => Promise<SensorReading>,
-    intervalMs = 10,
-    autoStopMs = -1
-  ) {
+  constructor(public read: () => Promise<SensorReading>, intervalMs = 10) {
     super(intervalMs);
   }
 
+  /**
+   * Ideas:
+   * - maybe weight more recent readings higher? ie weighted average
+   */
   async process() {
     this.queue.push(await this.read());
 
