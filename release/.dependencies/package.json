@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/web-bluetooth": "^0.0.21",
+    "eventemitter3": "^5.0.1"
+  }
+}
