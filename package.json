@@ -1,0 +1,22 @@
+{
+  "name": "doodlebot-line-array-following-suede",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "~5.9.3",
+    "vite": "npm:rolldown-vite@7.2.5"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.2.5"
+  },
+  "dependencies": {
+    "@types/web-bluetooth": "^0.0.21",
+    "eventemitter3": "^5.0.1"
+  }
+}
