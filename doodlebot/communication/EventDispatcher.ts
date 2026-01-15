@@ -23,7 +23,7 @@
  * SOFTWARE.
  */
 
-import { EventEmitter } from "eventemitter3";
+import EventEmitter from "events";
 
 export default class EventDispatcher<
   T extends Record<string, any> = Record<string, unknown>
