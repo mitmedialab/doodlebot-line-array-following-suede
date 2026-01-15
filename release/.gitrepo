@@ -6,7 +6,7 @@
 [subrepo]
 	remote = https://github.com/pmalacho-mit/doodlebot-line-following-suede
 	branch = release
-	commit = c5edce470860721d29295f3cec0e7d50baed1fe4
-	parent = 620e6e6c7cc3df7472cf27d412084069c188a1af
+	commit = defc121190ab87f6910e492ebffd51291a2b7f8d
+	parent = ae6463031f77d47e0eb121753cde88eb977e3896
 	method = merge
 	cmdver = 0.4.9
