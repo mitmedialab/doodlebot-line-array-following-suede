@@ -17,6 +17,8 @@
   },
   "dependencies": {
     "@types/web-bluetooth": "^0.0.21",
-    "eventemitter3": "^5.0.1"
+    "eventemitter3": "^5.0.1",
+    "events": "^3.3.0",
+    "vite-plugin-node-polyfills": "^0.25.0"
   }
 }
